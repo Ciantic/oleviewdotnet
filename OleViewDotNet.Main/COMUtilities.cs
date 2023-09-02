@@ -2032,7 +2032,11 @@ namespace OleViewDotNet
         // TODO: This isn't exactly correct, but can't find any good documentation.
         internal static string DemangleWinRTName(string name)
         {
-            name = name.Trim();
+            if (name == null)
+            {
+                Console.WriteLine("TODO: No name found ???");
+            }
+            name = (name ?? "").Trim();
             string result;
             if (_demangled_names.TryGetValue(name, out result))
             {
